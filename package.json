@@ -1,0 +1,23 @@
+{
+  "name": "redux-with-anisul",
+  "version": "1.0.0",
+  "description": "[https://www.youtube.com/watch?v=ttunWZ9sN0Q&list=PLgH5QX0i9K3pe7Z7ATcyLdUW3grE4Vfld&index=3&ab_channel=AnisulIslam](https://www.youtube.com/watch?v=ttunWZ9sN0Q&list=PLgH5QX0i9K3pe7Z7ATcyLdUW3grE4Vfld&index=3&ab_channel=AnisulIslam)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mhhasanmehedi/redux-with-anisul.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mhhasanmehedi/redux-with-anisul/issues"
+  },
+  "homepage": "https://github.com/mhhasanmehedi/redux-with-anisul#readme",
+  "dependencies": {
+    "redux": "^4.2.0"
+  }
+}
