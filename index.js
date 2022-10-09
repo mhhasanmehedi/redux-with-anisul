@@ -1,23 +1,14 @@
-const { createStore, combineReducers } = require("redux");
+const { createStore, applyMiddleware } = require("redux");
+const { default: logger } = require("redux-logger");
 
 // products constants
 const GET_PRODUCTS = "GET_PRODUCTS";
 const ADD_PRODUCT = "ADD_PRODUCT";
 
-// products constants
-const GET_CART_ITEMS = "GET_CART_ITEMS";
-const ADD_CART_ITEM = "ADD_CART_ITEM ";
-
 // initial state for product
 const initialProductState = {
   products: ["Sugar", "salt"],
   numberOfProducts: 2,
-};
-
-// initial state for Cart
-const initialCartState = {
-  carts: ["Sugar"],
-  numberOfCarts: 1,
 };
 
 // Product actions
@@ -34,20 +25,6 @@ const addProduct = (product) => {
   };
 };
 
-// cart actions
-const getCarts = () => {
-  return {
-    type: GET_CART_ITEMS,
-  };
-};
-
-const addCart = (cart) => {
-  return {
-    type: ADD_CART_ITEM,
-    payload: cart,
-  };
-};
-
 // product reducer
 const productReducer = (state = initialProductState, action) => {
   switch (action.type) {
@@ -58,47 +35,20 @@ const productReducer = (state = initialProductState, action) => {
 
     case ADD_PRODUCT:
       return {
-        numberOfProducts: state.numberOfProducts + 1,
         products: [...state.products, action.payload],
+        numberOfProducts: state.numberOfProducts + 1,
       };
     default:
       return state;
   }
 };
-
-// Cart Reducer
-const cartReducer = (state = initialCartState, action) => {
-  switch (action.type) {
-    case GET_CART_ITEMS:
-      return {
-        ...state,
-      };
-
-    case ADD_CART_ITEM:
-      return {
-        carts: [...state.carts, action.payload],
-        numberOfCarts: state.numberOfCarts + 1,
-      };
-    default:
-      return state;
-  }
-};
-
-const rootReducer = combineReducers({
-  productR: productReducer,
-  cartR: cartReducer,
-});
 
 // store
-const store = createStore(rootReducer);
+const store = createStore(productReducer, applyMiddleware(logger));
 
 store.subscribe(() => {
   console.log(store.getState());
 });
 
 store.dispatch(getProducts());
-// store.dispatch(addProduct("Potato"));
-// store.dispatch(addProduct("pen"));
-store.dispatch(getCarts());
-// store.dispatch(addCart("Book"));
-// store.dispatch(addCart("Book"));
+store.dispatch(addProduct("Potato"));
