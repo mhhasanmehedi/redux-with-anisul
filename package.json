@@ -4,6 +4,7 @@
   "description": "[https://www.youtube.com/watch?v=ttunWZ9sN0Q&list=PLgH5QX0i9K3pe7Z7ATcyLdUW3grE4Vfld&index=3&ab_channel=AnisulIslam](https://www.youtube.com/watch?v=ttunWZ9sN0Q&list=PLgH5QX0i9K3pe7Z7ATcyLdUW3grE4Vfld&index=3&ab_channel=AnisulIslam)",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,6 +19,7 @@
   },
   "homepage": "https://github.com/mhhasanmehedi/redux-with-anisul#readme",
   "dependencies": {
+    "nodemon": "^2.0.20",
     "redux": "^4.2.0"
   }
 }
